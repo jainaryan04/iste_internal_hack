@@ -3,6 +3,7 @@ import Navbar from './Components/Navbar';
 import Catalogue from './Components/Catalogue';
 import Login from './Components/Login';
 import AddOption from './Components/AddOption';
+import LandingPage from './Components/LandingPage'
 
 function App() {
   const [data, setData] = useState(null);
@@ -26,6 +27,7 @@ function App() {
   return (
     <div className="App">
       <Navbar email={isLoggedIn ? userEmail : ''} />
+      <LandingPage />
       {isLoggedIn ? (
         userRole === 'B' ? (
           <Catalogue />

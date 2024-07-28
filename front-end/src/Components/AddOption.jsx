@@ -45,40 +45,64 @@ const AddOption = ({ email }) => {
     }
   };
 
-  return (
-    <div>
-      <h1>Add Item</h1>
-      <form onSubmit={handleAddItem}>
-        <input
-          type="text"
-          placeholder="Item Name"
-          value={itemName}
-          onChange={(e) => setItemName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Department"
-          value={dept}
-          onChange={(e) => setDept(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-        <button type="submit">Add Item</button>
-      </form>
-      {message && <p>{message}</p>}
 
-      <h2>Items Listed by {email}</h2>
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>
-            {item.item_name} - {item.dept} - {item.price}
-          </li>
-        ))}
-      </ul>
+  return (
+    <div className="bg-[#BC9D6E] h-[47.5vh] ">
+      <br />
+      <div className="ml-4">
+        <h1 className="text-[4vh]">Add Item</h1>
+        <form onSubmit={handleAddItem} className="flex flex-wrap gap-2">
+          <input
+            type="text"
+            placeholder="Item Name"
+            value={itemName}
+            onChange={(e) => setItemName(e.target.value)}
+            className="shadow appearance-none border rounded py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-[#7B4926] w-[25%]"
+          />
+          <input
+            type="text"
+            placeholder="Description"
+            value={dept}
+            onChange={(e) => setDept(e.target.value)}
+            className="shadow appearance-none border rounded py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-[#7B4926] w-[25%]"
+          />
+          <input
+            type="number"
+            placeholder="Price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            className="shadow appearance-none border rounded py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-[#7B4926] w-[25%]"
+          />
+          <button
+            type="submit"
+            className="bg-[#7B4926] text-white border rounded-lg p-1 ml-2 w-[15%]"
+          >
+            Add Item
+          </button>
+        </form>
+      </div>
+      <br />
+      <h1>Items Listed by {email}</h1>
+      <div className="ml-8">
+        <table className="table-auto w-[80vw] text-left">
+          <thead>
+            <tr>
+              <th className="border-4 border-[#7B4926] px-4 py-2">Item Name</th>
+              <th className="border-4 border-[#7B4926] px-4 py-2">Description</th>
+              <th className="border-4 border-[#7B4926] px-4 py-2">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {items.map((item) => (
+              <tr key={item.id}>
+                <td className="border-4 border-[#7B4926] px-4 py-2">{item.item_name}</td>
+                <td className="border-4 border-[#7B4926] px-4 py-2">{item.dept}</td>
+                <td className="border-4 border-[#7B4926] px-4 py-2">{item.price}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

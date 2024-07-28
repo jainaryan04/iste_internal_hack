@@ -26,23 +26,34 @@ const Login = ({ setIsLoggedIn, setUserEmail, setUserRole }) => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <input 
-          type="email" 
-          placeholder="Email" 
-          value={email} 
-          onChange={(e) => setEmail(e.target.value)} 
-        />
-        <input 
-          type="password" 
-          placeholder="Password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-        />
-        <button type="submit">Login</button>
-      </form>
+    <div className="bg-[#BC9D6E] h-[47.5vh] flex items-center justify-center">
+      <div className="w-full max-w-xs">
+        <form onSubmit={handleLogin} className="bg-[#7B4926] shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
+          <div className="mb-4">
+            <input 
+              type="email" 
+              placeholder="Email" 
+              value={email} 
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-[#7B4926]" 
+              onChange={(e) => setEmail(e.target.value)} 
+            />
+          </div>
+          <div className="mb-6">
+            <input 
+              type="password" 
+              placeholder="Password" 
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-[#7B4926]" 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+            />
+          </div>
+          <div className="flex items-center justify-center">
+            <button type="submit" className=" bg-[#BC9D6E] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
       {message && <p>{message}</p>}
     </div>
   );
