@@ -18,25 +18,25 @@ const Catalogue = () => {
         fetchData();
     }, []);
 
-    console.log('Data state:', data); 
+    console.log('Data state:', data);
 
     return (
-        <div>
+        <div className="bg-[#BC9D6E] p-4">
             <p className="text-[6vh]">Items</p><br />
-            <ul>
+            <div className="grid grid-cols-2 gap-4">
                 {data.length > 0 ? (
                     data.map((item) => (
-                        <li key={item.id}>
-                            <strong>{item.item_name}</strong><br />
-                            <span>{item.dept}</span><br />
-                            <em>Listed by: {item.listed_by}</em><br />
-                            <span>Price: Rs{item.price}</span> <br /><br />
-                        </li>
+                        <div key={item.id} className="border border-gray-300 p-4 rounded bg-">
+                            <strong className="block text-lg">{item.item_name}</strong>
+                            <span className="block text-sm">{item.dept}</span>
+                            <em className="block text-sm">Listed by: {item.listed_by}</em>
+                            <span className="block text-sm">Price: Rs{item.price}</span>
+                        </div>
                     ))
                 ) : (
-                    <li>No data available</li>
+                    <div className="col-span-2">No data available</div>
                 )}
-            </ul>
+            </div>
         </div>
     );
 };
